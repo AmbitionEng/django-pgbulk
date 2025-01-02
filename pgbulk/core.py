@@ -149,7 +149,7 @@ class UpsertResult(List["Row"]):
 def _quote(field: str, cursor: "CursorWrapper") -> str:
     """Quote identifiers."""
     if psycopg_maj_version == 2:
-        return quote_ident(field, cursor.cursor)  # type: ignore
+        return quote_ident(field, cursor.connection)  # type: ignore
     else:
         return (
             Escaping(cursor.connection.pgconn)  # type: ignore

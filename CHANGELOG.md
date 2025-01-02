@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.2 (2025-01-02)
+
+#### Changes
+
+  - Use `cursor.connection` in psycopg2 to avoid issues caused by agents like NewRelic that wrap cursor objects by [@wesleykendall](https://github.com/wesleykendall) in [#51](https://github.com/AmbitionEng/django-pgbulk/pull/51).
+
 ## 3.2.1 (2024-12-15)
 
 #### Changes
