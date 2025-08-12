@@ -54,6 +54,7 @@ documentation = "https://django-pgbulk.readthedocs.io"
 [tool.poetry.dependencies]
 python = ">=3.9.0,<4"
 django = ">=4"
+typing-extensions = "4.12.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "8.3.3"
@@ -74,7 +75,6 @@ setuptools = "*"
 poetry-core = "1.9.1"
 cleo = "2.1.0"
 poetry-plugin-export = "1.8.0"
-typing-extensions = "4.12.2"
 django-types = "0.19.1"
 dj-database-url = "2.3.0"
 psycopg2-binary = "2.9.10"
