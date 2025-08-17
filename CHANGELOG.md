@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.3 (2025-08-16)
+
+#### Fixes
+
+  - Includes `typing-extensions` as a direct dependency to avoid import errors by [@cjwatson](https://github.com/cjwatson) in [#54](https://github.com/AmbitionEng/django-pgbulk/pull/54).
+
 ## 3.2.2 (2025-01-02)
 
 #### Changes
