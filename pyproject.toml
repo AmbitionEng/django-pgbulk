@@ -54,7 +54,6 @@ documentation = "https://django-pgbulk.readthedocs.io"
 [tool.poetry.dependencies]
 python = ">=3.9.0,<4"
 django = ">=4"
-typing-extensions = ">=4"
 
 [tool.poetry.dev-dependencies]
 pytest = "8.3.3"
@@ -80,6 +79,7 @@ dj-database-url = "2.3.0"
 psycopg2-binary = "2.9.10"
 pytest-django = "4.9.0"
 django-dynamic-fixture = "4.0.1"
+typing-extensions = ">=4"
 
 [tool.pytest.ini_options]
 xfail_strict = true
