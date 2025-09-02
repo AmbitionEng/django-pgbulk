@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.2.4 (2025-09-02)
+
+#### Fixes
+
+  - Modify how `typing-extensions` is imported to avoid needing it as runtime dependency by [@max-muoto](https://github.com/max-muoto) in [#56](https://github.com/AmbitionEng/django-pgbulk/pull/56).
+  - Fix return type of `pgbulk.update` when there is no input and returning is not `None` by [@wesleykendall](https://github.com/wesleykendall) in [#57](https://github.com/AmbitionEng/django-pgbulk/pull/57).
+
 ## 3.2.3 (2025-08-16)
 
 #### Fixes

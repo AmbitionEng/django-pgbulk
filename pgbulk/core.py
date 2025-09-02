@@ -581,7 +581,7 @@ def _update(
 
     # If we do not have any values or fields to update, just return
     if len(row_values) == 0 or len(update_fields) == 0:
-        return None
+        return [] if returning else None
 
     db_types = [model._meta.get_field(field).db_type(connection) for field in value_fields]
 
