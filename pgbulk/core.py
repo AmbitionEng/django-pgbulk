@@ -23,15 +23,17 @@ from django.db.models import expressions
 from django.db.models.sql.compiler import SQLCompiler
 from django.utils import timezone
 from django.utils.version import get_version_tuple
-from typing_extensions import Final, TypeAlias
 
-UpdateFieldsTypeDef: TypeAlias = Union[
+if TYPE_CHECKING:
+    from typing_extensions import Final, TypeAlias
+
+UpdateFieldsTypeDef: "TypeAlias" = Union[
     List[str], List["UpdateField"], List[Union["UpdateField", str]], None
 ]
 _M = TypeVar("_M", bound=models.Model)
-QuerySet: TypeAlias = Union[Type[_M], models.QuerySet[_M]]
-AnyField: TypeAlias = "models.Field[Any, Any]"
-Expression: TypeAlias = "models.Expression | models.F"
+QuerySet: "TypeAlias" = Union[Type[_M], models.QuerySet[_M]]
+AnyField: "TypeAlias" = "models.Field[Any, Any]"
+Expression: "TypeAlias" = "models.Expression | models.F"
 
 _PRECISION_SPECIFIER_RE: "Final" = re.compile(r"\(.*?\)")
 
