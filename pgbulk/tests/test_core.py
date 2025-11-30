@@ -169,7 +169,7 @@ def test_upsert_return_created_values():
 
     assert len(results.created) == 3
     for test_model, expected_int in zip(
-        sorted(results.created, key=lambda k: k.int_field), [1, 3, 4]
+        sorted(results.created, key=lambda k: k.int_field), [1, 3, 4], strict=True
     ):
         assert test_model.int_field == expected_int
         assert test_model.id is not None
@@ -224,7 +224,9 @@ def test_upsert_return_created_updated_values():
     updated = results.updated
     assert len(created) == 3
     assert len(updated) == 1
-    for test_model, expected_int in zip(sorted(created, key=lambda k: k.int_field), [1, 3, 4]):
+    for test_model, expected_int in zip(
+        sorted(created, key=lambda k: k.int_field), [1, 3, 4], strict=True
+    ):
         assert test_model.int_field == expected_int
         assert test_model.float_field == 3.0  # almostequals
         assert test_model.id is not None
@@ -301,7 +303,7 @@ def test_upsert_wo_update_fields():
     # Three objects should now exist, but no float fields should be updated
     assert models.TestModel.objects.count() == 3
     for test_model, expected_int_value in zip(
-        models.TestModel.objects.order_by("int_field"), [1, 2, 3]
+        models.TestModel.objects.order_by("int_field"), [1, 2, 3], strict=True
     ):
         assert test_model.int_field == expected_int_value
         assert test_model.float_field == expected_int_value

@@ -329,7 +329,7 @@ def _format_placeholders_row(
         f"{'%s'}{f'::{field.db_type(connection)}' if include_cast else ''}"
         if val is not _DB_DEFAULT
         else "DEFAULT"
-        for val, field in zip(values_for_row, all_fields)
+        for val, field in zip(values_for_row, all_fields, strict=True)
     )
     return f"({placeholders})"
 
