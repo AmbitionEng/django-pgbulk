@@ -819,46 +819,6 @@ files = [
 hashids = ">=1.0.2"
 
 [[package]]
-name = "django-stubs"
-version = "5.2.7"
-description = "Mypy stubs for Django"
-optional = false
-python-versions = ">=3.10"
-groups = ["dev"]
-files = [
-    {file = "django_stubs-5.2.7-py3-none-any.whl", hash = "sha256:2864e74b56ead866ff1365a051f24d852f6ed02238959664f558a6c9601c95bf"},
-    {file = "django_stubs-5.2.7.tar.gz", hash = "sha256:2a07e47a8a867836a763c6bba8bf3775847b4fd9555bfa940360e32d0ee384a1"},
-]
-
-[package.dependencies]
-django = "*"
-django-stubs-ext = ">=5.2.7"
-tomli = {version = "*", markers = "python_full_version < \"3.11.0\""}
-types-pyyaml = "*"
-typing-extensions = ">=4.11.0"
-
-[package.extras]
-compatible-mypy = ["mypy (>=1.13,<1.19)"]
-oracle = ["oracledb"]
-redis = ["redis", "types-redis"]
-
-[[package]]
-name = "django-stubs-ext"
-version = "5.2.7"
-description = "Monkey-patching and extensions for django-stubs"
-optional = false
-python-versions = ">=3.10"
-groups = ["dev"]
-files = [
-    {file = "django_stubs_ext-5.2.7-py3-none-any.whl", hash = "sha256:0466a7132587d49c5bbe12082ac9824d117a0dedcad5d0ada75a6e0d3aca6f60"},
-    {file = "django_stubs_ext-5.2.7.tar.gz", hash = "sha256:b690655bd4cb8a44ae57abb314e0995dc90414280db8f26fff0cb9fb367d1cac"},
-]
-
-[package.dependencies]
-django = "*"
-typing-extensions = "*"
-
-[[package]]
 name = "django-timezone-field"
 version = "4.0"
 description = "A Django app providing database and form fields for pytz timezone objects."
@@ -873,6 +833,21 @@ files = [
 [package.dependencies]
 django = ">=2.2"
 pytz = "*"
+
+[[package]]
+name = "django-types"
+version = "0.22.0"
+description = "Type stubs for Django"
+optional = false
+python-versions = "<4.0,>=3.10"
+groups = ["dev"]
+files = [
+    {file = "django_types-0.22.0-py3-none-any.whl", hash = "sha256:ba15c756c7a732e58afd0737e54489f1c5e6f1bd24132e9199c637b1f88b057c"},
+    {file = "django_types-0.22.0.tar.gz", hash = "sha256:4cecc9eee846e7ff2a398bec9dfe6543e76efb922a7a58c5d6064bcb0e6a3dc5"},
+]
+
+[package.dependencies]
+types-psycopg2 = ">=2.9.21.13"
 
 [[package]]
 name = "dulwich"
@@ -2708,15 +2683,15 @@ files = [
 ]
 
 [[package]]
-name = "types-pyyaml"
-version = "6.0.12.20250915"
-description = "Typing stubs for PyYAML"
+name = "types-psycopg2"
+version = "2.9.21.20251012"
+description = "Typing stubs for psycopg2"
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "types_pyyaml-6.0.12.20250915-py3-none-any.whl", hash = "sha256:e7d4d9e064e89a3b3cae120b4990cd370874d2bf12fa5f46c97018dd5d3c9ab6"},
-    {file = "types_pyyaml-6.0.12.20250915.tar.gz", hash = "sha256:0f8b54a528c303f0e6f7165687dd33fafa81c807fcac23f632b63aa624ced1d3"},
+    {file = "types_psycopg2-2.9.21.20251012-py3-none-any.whl", hash = "sha256:712bad5c423fe979e357edbf40a07ca40ef775d74043de72bd4544ca328cc57e"},
+    {file = "types_psycopg2-2.9.21.20251012.tar.gz", hash = "sha256:4cdafd38927da0cfde49804f39ab85afd9c6e9c492800e42f1f0c1a1b0312935"},
 ]
 
 [[package]]
@@ -3030,4 +3005,4 @@ cffi = ["cffi (>=1.17,<2.0) ; platform_python_implementation != \"PyPy\" and pyt
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10.0,<4"
-content-hash = "5cccb4157cadd6bdd7ca4ee5aee97a73376a6dcb0c20e2a15365ae2fcfe20c16"
+content-hash = "2fb3ae69da243b871fca136a0979edb0575161c1613f6244864e87d88eed1d02"
