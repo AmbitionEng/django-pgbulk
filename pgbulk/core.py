@@ -315,8 +315,8 @@ def _get_values_for_row(
             queryset,
             field,
             getattr(model_obj, field.attname),
-            connection,
-            copying=copying,  # type: ignore
+            connection,  # type: ignore
+            copying=copying,
         )
         for field in all_fields
     ]
@@ -359,8 +359,8 @@ def _get_values_for_rows(
                 _format_placeholders_row(
                     values_for_row,
                     all_fields,
-                    connection,
-                    include_cast=False,  # type: ignore
+                    connection,  # type: ignore
+                    include_cast=False,
                 )
             )
 
