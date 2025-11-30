@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.3.0 (2025-11-30)
+
+#### Changes
+
+  - Drop Python 3.9 support, add Python 3.14 support, add Postgres 18 support, add Django 6.0 support by [@wesleykendall](https://github.com/wesleykendall) in [#58](https://github.com/AmbitionEng/django-pgbulk/pull/58)
+
 ## 3.2.4 (2025-09-02)
 
 #### Fixes
