@@ -1,7 +1,7 @@
 _extensions:
 - jinja2_time.TimeExtension
 _template: git@github.com:Opus10/python-library-template.git
-_version: b7d2321846eeeb120ea9455597ddcf9bd8b5e7a4
+_version: baafae2af9d39e491ca17b7fd197562883252ceb
 check_types_in_ci: 'True'
 is_django: 'True'
 module_name: pgbulk

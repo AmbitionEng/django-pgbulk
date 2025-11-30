@@ -293,7 +293,7 @@ def _sort_by_unique_fields(
 
     def sort_key(model_obj: _M) -> Tuple[Any, ...]:
         return tuple(
-            _get_field_db_val(queryset, field, getattr(model_obj, field.attname), connection)
+            _get_field_db_val(queryset, field, getattr(model_obj, field.attname), connection)  # type: ignore
             for field in unique_db_fields
         )
 
@@ -312,7 +312,11 @@ def _get_values_for_row(
         # Convert field value to db value
         # Use attname here to support fields with custom db_column names
         _get_field_db_val(
-            queryset, field, getattr(model_obj, field.attname), connection, copying=copying
+            queryset,
+            field,
+            getattr(model_obj, field.attname),
+            connection,  # type: ignore
+            copying=copying,
         )
         for field in all_fields
     ]
@@ -329,7 +333,7 @@ def _format_placeholders_row(
         f"{'%s'}{f'::{field.db_type(connection)}' if include_cast else ''}"
         if val is not _DB_DEFAULT
         else "DEFAULT"
-        for val, field in zip(values_for_row, all_fields)
+        for val, field in zip(values_for_row, all_fields, strict=True)
     )
     return f"({placeholders})"
 
@@ -348,12 +352,15 @@ def _get_values_for_rows(
         sql_args.extend((val for val in values_for_row if val is not _DB_DEFAULT))
         if i == 0:
             row_values.append(
-                _format_placeholders_row(values_for_row, all_fields, connection, include_cast=True)
+                _format_placeholders_row(values_for_row, all_fields, connection, include_cast=True)  # type: ignore
             )
         else:
             row_values.append(
                 _format_placeholders_row(
-                    values_for_row, all_fields, connection, include_cast=False
+                    values_for_row,
+                    all_fields,
+                    connection,  # type: ignore
+                    include_cast=False,
                 )
             )
 
@@ -572,7 +579,7 @@ def _update(
                 queryset,
                 model_obj._meta.get_field(field),
                 getattr(model_obj, model_obj._meta.get_field(field).attname),
-                connection,
+                connection,  # type: ignore
             )
             for field in value_fields
         ]
@@ -1022,7 +1029,7 @@ def copy(
 
         with cursor.copy(copy_sql) as copier:  # type: ignore
             if binary:
-                postgres_types = _postgres_types_for_fields(fields, connection)
+                postgres_types = _postgres_types_for_fields(fields, connection)  # type: ignore
                 copier.set_types(postgres_types)  # type: ignore
 
             for model_obj in model_objs:
